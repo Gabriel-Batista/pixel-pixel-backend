@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    resources :users, only: [:show, :create, :edit, :delete]
+    resources :projects, only: [:show, :create, :edit, :delete]
+    resources :palettes, only: [:show, :create, :delete]
+    resources :frames, only: [:show, :create, :edit, :delete]
+    resources :colors, only: [:create, :edit, :delete]
+
+    post "/login", to: "sessions#login"
+    get "/persist", to: "sessions#persist"
 end

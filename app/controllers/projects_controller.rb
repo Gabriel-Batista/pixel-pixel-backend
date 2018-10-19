@@ -16,17 +16,13 @@ class ProjectsController < ApplicationController
 
     def edit
         @project = Project.find(params[:id])
-        if params[:password] == @project.user.password
-            @project.update(name: params[:name])
-            render json: @project
-        end
+        @project.update(name: params[:name])
+        render json: @project
     end
 
     def delete
         @project = Project.find(params[:id])
-        if params[:password] == @project.user.password
-            @project.destroy
-            render json: {success: "#{@project.id} was destroyed."}
-        end
+        @project.destroy
+        render json: {success: "#{@project.id} was destroyed."}
     end
 end

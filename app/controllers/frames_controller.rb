@@ -10,16 +10,12 @@ class FramesController < ApplicationController
 
     def edit
         @frame = Frame.find(params[:id])
-        if params[:password] == @frame.user.base64
-            @frame.update(base64: params[:base64])
-            render json: @frame
-        end
+        @frame.update(base64: params[:base64])
+        render json: @frame
     end
 
     def delete
         @frame = Frame.find(params[:id])
-        if params[:password] == @frame.user.password
-            @frame.destroy
-        end
+        @frame.destroy
     end
 end

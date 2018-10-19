@@ -6,16 +6,12 @@ class ColorsController < ApplicationController
 
     def edit
         @color = Color.find(parmas[:id])
-        if params[:password] == @color.user.password
-            @color.update(rgb: params[:rgb], hex: params[:hex])
-            render json: @color
-        end
+        @color.update(rgb: params[:rgb], hex: params[:hex])
+        render json: @color
     end
 
     def delete
         @color = Color.find(parmas[:id])
-        if params[:password] == @color.user.password
-            @color.destroy
-        end
+        @color.destroy
     end
 end

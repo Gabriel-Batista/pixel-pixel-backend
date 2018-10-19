@@ -13,9 +13,7 @@ class PalettesController < ApplicationController
 
     def delete
         @palette = Palette.find(params[:id])
-        if params[:password] == @palette.user.password
-            @palette.destroy
-            render json: {success: "#{@pallette.id} was destroyed."}
-        end
+        @palette.destroy
+        render json: {success: "#{@pallette.id} was destroyed."}
     end
 end

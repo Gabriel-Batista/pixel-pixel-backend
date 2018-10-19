@@ -8,22 +8,20 @@ class UsersController < ApplicationController
         @new_user = User.new(username: params[:username], password: params[:password])
         if @new_user.save
             render json: @new_user
+        else
+            render json: {error: "Username has already been taken"}
         end
     end
 
     def edit
         @user = User.find(params[:id])
-        if params[:password] == @user.password
-            @user.update(username: params[:username], password: params[:new_password])
-        end
+        @user.update(username: params[:username], password: params[:new_password])
         render json: @user
     end
 
     def delete
         @user = User.find(params[:id])
-        if params[:password] == @user.password
-            @user.destroy
-            render json: {success: "#{@user.id} was destroyed."}
-        end
+        @user.destroy
+        render json: {success: "#{@user.id} was destroyed."}
     end
 end
