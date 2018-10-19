@@ -5,7 +5,12 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @new_project = Project.new(user_id: params[:user_id], name: params[:name])
+        begin
+            user_id = JWT.decode(params[:token], "1756tech7788learn0891money", true)
+        rescue JWT::DecodeError
+            nil
+        end
+        @new_project = Project.new(user_id: user_id, name: params[:name])
         if @new_project.save
             params[:frames].each do |base64|
                 @new_project.frames.create(base64: base64)

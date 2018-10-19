@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
     post "/login", to: "sessions#login"
     get "/persist", to: "sessions#persist"
+
+    get "/users/:username/projects", to: "users#projects"
 end

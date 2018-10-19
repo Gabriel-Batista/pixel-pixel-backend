@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
+    def projects
+        @projects = User.find_by(username: params[:username]).projects
+        render json: @projects
+    end
+    
     def show
         @user = User.find(params[:id])
         render json: @user
     end
 
     def create
-        @new_user = User.new(username: params[:username], password: params[:password])
-        if @new_user.save
-            render json: @new_user
+        @user = User.new(username: params[:username], password: params[:password])
+        if @user.save
+            render json: @user
         else
             render json: {error: "Username has already been taken"}
         end
