@@ -10,13 +10,16 @@ class ProjectsController < ApplicationController
         rescue JWT::DecodeError
             nil
         end
-        @new_project = Project.new(user_id: user_id, name: params[:name])
+        @new_project = Project.new(user_id: user_id[0]["user_id"], name: params[:name])
         if @new_project.save
             params[:frames].each do |base64|
                 @new_project.frames.create(base64: base64)
             end
             render json: @new_project
+        else
+            render json: @new_project.errors
         end
+
     end
 
     def edit
