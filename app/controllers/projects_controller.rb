@@ -12,8 +12,9 @@ class ProjectsController < ApplicationController
         end
         @new_project = Project.new(user_id: user_id[0]["user_id"], name: params[:name])
         if @new_project.save
-            params[:frames].each do |base64|
-                @new_project.frames.create(base64: base64)
+            params[:frames].each do |key, frame|
+                byebug
+                @new_project.frames.create(local_id: frame["id"], base64: frame["base64"])
             end
             render json: @new_project
         else
