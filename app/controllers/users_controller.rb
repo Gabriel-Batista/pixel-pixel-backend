@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         end
     end
 
-    def edit
+    def update
         @user = User.find(params[:id])
         @user.update(username: params[:username], password: params[:new_password])
         render json: @user

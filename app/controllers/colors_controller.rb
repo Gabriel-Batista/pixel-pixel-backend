@@ -4,7 +4,7 @@ class ColorsController < ApplicationController
         render json: @color
     end
 
-    def edit
+    def update
         @color = Color.find(parmas[:id])
         @color.update(rgb: params[:rgb], hex: params[:hex])
         render json: @color

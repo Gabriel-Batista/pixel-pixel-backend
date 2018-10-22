@@ -26,13 +26,11 @@ class ProjectsController < ApplicationController
         end
     end
 
-    def edit
+    def update
         @project = Project.find(params[:id])
         @project.update(name: params[:name])
-        params[:frames].each do |key, frame|
-            @frame= Frame.find_by(local_id: frame.local_id)
-            @new_project.frames.update(base64: frame["base64"])
-        end
+        @frame= Frame.find_by(local_id: params[:frameId])
+        @frame.update(base64: params[:frame])
         render json: @project
     end
 
