@@ -14,8 +14,9 @@ class FramesController < ApplicationController
         render json: @frame
     end
 
-    def delete
-        @frame = Frame.find(params[:id])
+    def destroy
+        @frame = Frame.find_by(local_id: params[:id])
         @frame.destroy
+        render json: {success: "frame #{params[:id]} was destroyed"}
     end
 end

@@ -11,7 +11,7 @@ class PalettesController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         @palette = Palette.find(params[:id])
         @palette.destroy
         render json: {success: "#{@pallette.id} was destroyed."}

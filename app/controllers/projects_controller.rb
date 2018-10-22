@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
         render json: @project
     end
 
-    def delete
+    def destroy
         @project = Project.find(params[:id])
         @project.destroy
         render json: {success: "#{@project.id} was destroyed."}

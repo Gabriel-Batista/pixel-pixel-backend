@@ -10,7 +10,7 @@ class ColorsController < ApplicationController
         render json: @color
     end
 
-    def delete
+    def destroy
         @color = Color.find(parmas[:id])
         @color.destroy
     end

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-    resources :users, only: [:show, :create, :update, :delete]
-    resources :projects, only: [:show, :create, :update, :delete]
-    resources :palettes, only: [:show, :create, :delete]
-    resources :frames, only: [:show, :create, :update, :delete]
-    resources :colors, only: [:create, :update, :delete]
+    resources :users, only: [:show, :create, :update, :destroy]
+    resources :projects, only: [:show, :create, :update, :destroy]
+    resources :palettes, only: [:show, :create, :destroy]
+    resources :frames, only: [:show, :create, :update, :destroy]
+    resources :colors, only: [:create, :update, :destroy]
 
     post "/login", to: "sessions#login"
     get "/persist", to: "sessions#persist"
