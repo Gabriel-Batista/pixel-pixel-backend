@@ -1,3 +1,3 @@
 class FrameSerializer < ActiveModel::Serializer
-  attributes :id, :base64
+    attributes :id, :local_id, :base64
 end

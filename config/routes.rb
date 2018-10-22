@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     get "/persist", to: "sessions#persist"
 
     get "/users/:username/projects", to: "users#projects"
+    get "/projects/:id/frames", to: "projects#frames"
 end

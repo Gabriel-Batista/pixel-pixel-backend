@@ -1,4 +1,9 @@
 class ProjectsController < ApplicationController
+    def frames
+        @frames = Project.find(params[:id]).frames
+        render json: @frames
+    end
+
     def show
         @project = Project.find(params[:id])
         render json: @project
@@ -13,19 +18,21 @@ class ProjectsController < ApplicationController
         @new_project = Project.new(user_id: user_id[0]["user_id"], name: params[:name])
         if @new_project.save
             params[:frames].each do |key, frame|
-                byebug
                 @new_project.frames.create(local_id: frame["id"], base64: frame["base64"])
             end
             render json: @new_project
         else
             render json: @new_project.errors
         end
-
     end
 
     def edit
         @project = Project.find(params[:id])
         @project.update(name: params[:name])
+        params[:frames].each do |key, frame|
+            @frame= Frame.find_by(local_id: frame.local_id)
+            @new_project.frames.update(base64: frame["base64"])
+        end
         render json: @project
     end
 

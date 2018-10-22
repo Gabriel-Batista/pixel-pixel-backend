@@ -25,10 +25,7 @@ class SessionsController < ApplicationController
         if(payload)
             id = payload[0]["user_id"]
             @user = User.find(id)
-            render json: {
-                user: {user_id: @user.id, username: @user.username},
-                projects: @user.projects
-            }
+            render json: @user
         else
             render json: {
                 error: "Invalid token"
