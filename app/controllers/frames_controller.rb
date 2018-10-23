@@ -5,7 +5,9 @@ class FramesController < ApplicationController
     end
 
     def create
-        @new_frame = Frame.new(base64: params[:base64])
+        @project = Project.find(params[:project_id])
+        @new_frame = @project.frames.create(local_id: params[:frame_id], base64: params[:base64])
+        render json: @new_frame
     end
 
     def update
