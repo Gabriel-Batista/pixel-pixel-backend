@@ -17,6 +17,7 @@ To run frontend web app check link below:
 * [Ruby on Rails](https://rubyonrails.org/) - The server framework used
 * [JWT](https://github.com/jwt/ruby-jwt) - JSON web token generator
 * [bcrypt](https://github.com/codahale/bcrypt-ruby) - Password encryption gem
+* [Postgresql](https://www.postgresql.org/) - Database
 
 ## Contributing
 
