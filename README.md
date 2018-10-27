@@ -13,9 +13,9 @@ To run frontend web app check link below:
 
 ## Built With
 
-* [React](https://github.com/facebook/react) - The web framework used
-* [Redux](https://github.com/reduxjs/react-redux) - State manager
-* [Semantic UI](https://react.semantic-ui.com/) - Used to generate RSS Feeds
+* [Ruby on Rails](https://rubyonrails.org/) - The server framework used
+* [JWT](https://github.com/jwt/ruby-jwt) - JSON web token generator
+* [bcrypt](https://github.com/codahale/bcrypt-ruby) - Password encryption gem
 
 ## Contributing
 
