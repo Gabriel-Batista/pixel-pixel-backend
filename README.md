@@ -1,11 +1,12 @@
-# Pixel-Pixel
+# Pixel-Pixel-Backend
 
 A simple canvas based sprite art creator focused on usability. Draw your sprites, add frames and persist to a database. Frames support onion layers. 
 
 ## Getting Started
 
-1.Clone or download the project to your computer.
-2.Open your terminal and type `npm install && npm start` to start your server.
+1. Clone or download the project to your computer.
+2. Open your terminal and type `bundle install` to install dependencies.
+3. type 'rails start' to start server.
 
 To run frontend web app check link below:
 
